@@ -69,9 +69,8 @@ public class Dictionary{
         return containsWord;
 }
 
-//public void display(){
-//    System.out.println(words);
-//    System.out.println(words.size());   
-//}
+    public void display(){
+        System.out.println(words);   
+}
 
 }
