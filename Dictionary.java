@@ -41,11 +41,10 @@ public class Dictionary{
         }
         words.addAll(hashList);
         Collections.sort(words);
-        //this.words = words;
         
         return added;
 }
-
+    //generate a random word from the list
     public String nextWord(){
         String nextWord;
         if(words.isEmpty()){
@@ -56,7 +55,9 @@ public class Dictionary{
             nextWord=words.get(randomIndex);    
         }
         return nextWord;
-    }
+}
+
+    //returns true or false depending on if the word is found in the Dictionary
     public boolean inDictionary(String word){
         boolean containsWord=false;
         Iterator<String> checkInDictionary = words.iterator();
@@ -66,11 +67,11 @@ public class Dictionary{
             }
         }
         return containsWord;
-    }
-
-    public void display(){
-        System.out.println(words);
-        System.out.println(words.size());   
 }
-    
+
+//public void display(){
+//    System.out.println(words);
+//    System.out.println(words.size());   
+//}
+
 }
