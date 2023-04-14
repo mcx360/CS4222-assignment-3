@@ -13,29 +13,26 @@ public class Dictionary{
         File wordsFile = new File(filepath);
         Scanner wordScanner = new Scanner(wordsFile);
         wordScanner.useDelimiter(",|\\s|\n");
-        ArrayList<String> list = new ArrayList<String>();
-        HashSet<String> hashList = new HashSet<String>();
+        ArrayList<String> wordArrayList = new ArrayList<String>();
+        HashSet<String> wordHashList = new HashSet<String>();
         while(wordScanner.hasNext()){
                 String word = wordScanner.next().toUpperCase().trim();
                 if(word.length()<=longest && word.length()>=shortest){ 
-                    hashList.add(word);
+                    wordHashList.add(word);
                 }
         }
-        list.addAll(hashList);
-        Collections.sort(list);
-        this.words = list;
-    } catch(IOException e){
+        wordScanner.close();
+        wordArrayList.addAll(wordHashList);
+        Collections.sort(wordArrayList);
+        this.words = wordArrayList;
+       }catch(IOException e){
         //the code does not execute anything if the file is not found
     } 
-    }
+}
 
-    public void display(){
-        System.out.println(words);
-        System.out.println(words.size());   
-    }
+    //Adds a String parameter to the list and returns true,unless the String is already in the set in which case false will be returned
     public boolean add(String word){
         HashSet<String> hashList = new HashSet<String>();
-        ArrayList<String> ArrayListy = new ArrayList<String>();
         final int hashListSizebeforeAddition = hashList.size();
         boolean added=false;
         hashList.add(word.toUpperCase());
@@ -47,7 +44,8 @@ public class Dictionary{
         //this.words = words;
         
         return added;
-    }
+}
+
     public String nextWord(){
         String nextWord;
         if(words.isEmpty()){
@@ -69,5 +67,10 @@ public class Dictionary{
         }
         return containsWord;
     }
+
+    public void display(){
+        System.out.println(words);
+        System.out.println(words.size());   
+}
     
 }
