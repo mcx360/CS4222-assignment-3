@@ -5,8 +5,11 @@ public class DictionaryDriver {
         //Dictionary instance for testing
         //Dictionary myDictionary = new Dictionary("textDocument.CSV", 1, 100);
         if(args.length !=3){
-            System.out.println("arguments passed incorrectly");
+            //System.out.println("arguments passed incorrectly");
+            System.err.println("arguments passed incorectly!");
+            System.exit(1);
         }
+        
         
         String filePath = args[0];
         int shortest = Integer.parseInt(args[1]);
@@ -29,6 +32,7 @@ public class DictionaryDriver {
         //check if the previously added word is in the dictionary
         System.out.println("Check for word \"zebra\" in the dictionary: "+ myDictionary.inDictionary("zebra"));
 
+        //print the list in alphabetical order
         myDictionary.display();
         
     }
